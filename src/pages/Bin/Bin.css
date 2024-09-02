@@ -88,3 +88,13 @@ p {
     margin:0 10px 0 0;
 }
 
+.item-details {
+    display: flex;
+    align-items: center;
+}
+
+.item-details svg {
+    color: #007bff; /* Color azul para los íconos */
+    font-size: 20px; /* Tamaño del ícono */
+    margin-right: 10px; /* Espacio entre el ícono y el texto */
+}
