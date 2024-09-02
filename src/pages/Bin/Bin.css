@@ -1,0 +1,90 @@
+/* Bin.css */
+
+.bin {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.bin-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #f4f4f4;
+    margin-top: 60px; /* Ajusta este valor según la altura del Navbar */
+    box-sizing: border-box; /* Asegura que el padding esté incluido en el tamaño total */
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+.bin-items {
+    margin-top: 20px;
+}
+
+.bin-items ul {
+    list-style: none;
+    padding: 0;
+}
+
+.bin-items li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    background-color: #fff;
+}
+
+.bin-items li .item-details {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.restore-button, .delete-button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.restore-button {
+    background-color: #28a745;
+    color: white;
+    margin-left: 10px;
+}
+
+.restore-button:hover {
+    background-color: #218838;
+}
+
+.delete-button {
+    background-color: #dc3545;
+    color: white;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+.bin-item.folder {
+    background-color: #eaf1f8;
+}
+
+.bin-item.file {
+    background-color: #f8f1e8;
+}
+
+.delete-button, .restore-button{
+    margin:0 10px 0 0;
+}
+
