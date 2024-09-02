@@ -1,18 +1,15 @@
 import React, { useState } from 'react';
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
-import './Settings.css'
-
-
+import './Settings.css';
+import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 
 const Settings = () => {
-    // State hooks to manage form input
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [newPassword, setNewPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
 
-    // Handlers for form submission
     const handleEmailChange = (e) => setEmail(e.target.value);
     const handlePasswordChange = (e) => setPassword(e.target.value);
     const handleNewPasswordChange = (e) => setNewPassword(e.target.value);
@@ -25,55 +22,67 @@ const Settings = () => {
     };
 
     return (
-        <div className="settings">
+        <div className="settings d-flex flex-column min-vh-100">
             <Navbar />
-            <main className="settings-content">
-                <h1>Settings</h1>
+            <main className="settings-content container my-4">
+                <h1 className="mb-4">Settings</h1>
                 <form onSubmit={handleSubmit}>
-                    <section className="settings-section">
-                        <h2>Change Email</h2>
-                        <label htmlFor="email">New Email:</label>
-                        <input
-                            type="email"
-                            id="email"
-                            value={email}
-                            onChange={handleEmailChange}
-                            required
-                        />
+                    <section className="settings-section mb-4">
+                        <h2 className="h5 mb-3">Change Email</h2>
+                        <div className="mb-3">
+                            <label htmlFor="email" className="form-label">New Email:</label>
+                            <input
+                                type="email"
+                                id="email"
+                                value={email}
+                                onChange={handleEmailChange}
+                                className="form-control"
+                                required
+                            />
+                        </div>
                     </section>
                     
-                    <section className="settings-section">
-                        <h2>Change Password</h2>
-                        <label htmlFor="current-password">Current Password:</label>
-                        <input
-                            type="password"
-                            id="current-password"
-                            value={password}
-                            onChange={handlePasswordChange}
-                            required
-                        />
-                        <label htmlFor="new-password">New Password:</label>
-                        <input
-                            type="password"
-                            id="new-password"
-                            value={newPassword}
-                            onChange={handleNewPasswordChange}
-                            required
-                        />
-                        <label htmlFor="confirm-password">Confirm New Password:</label>
-                        <input
-                            type="password"
-                            id="confirm-password"
-                            value={confirmPassword}
-                            onChange={handleConfirmPasswordChange}
-                            required
-                        />
-                        {newPassword !== confirmPassword && confirmPassword.length > 0 && (
-                            <p className="error-text">Passwords do not match</p>
-                        )}
+                    <section className="settings-section mb-4">
+                        <h2 className="h5 mb-3">Change Password</h2>
+                        <div className="mb-3">
+                            <label htmlFor="current-password" className="form-label">Current Password:</label>
+                            <input
+                                type="password"
+                                id="current-password"
+                                value={password}
+                                onChange={handlePasswordChange}
+                                className="form-control"
+                                required
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="new-password" className="form-label">New Password:</label>
+                            <input
+                                type="password"
+                                id="new-password"
+                                value={newPassword}
+                                onChange={handleNewPasswordChange}
+                                className="form-control"
+                                required
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="confirm-password" className="form-label">Confirm New Password:</label>
+                            <input
+                                type="password"
+                                id="confirm-password"
+                                value={confirmPassword}
+                                onChange={handleConfirmPasswordChange}
+                                className="form-control"
+                                required
+                            />
+                            {newPassword !== confirmPassword && confirmPassword.length > 0 && (
+                                <p className="error-text text-danger mt-2">Passwords do not match</p>
+                            )}
+                        </div>
                     </section>
 
-                    <button type="submit" className="submit-button">Save Changes</button>
+                    <button type="submit" className="btn btn-primary">Save Changes</button>
                 </form>
             </main>
             <Footer />

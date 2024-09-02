@@ -1,54 +1,18 @@
-
-
 .navbar {
-    background-color: #007BFF;
-    color: #fff;
-    padding: 0.5rem 1rem;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    box-sizing: border-box; /* Ensure padding does not affect width */
-  }
-  
-  
-  
-  .navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .navbar-brand {
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  
-  .navbar-links a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 1rem;
-    font-size: 1rem;
-  }
-  
-  .navbar-links a:hover {
-    text-decoration: underline;
-  }
-  
-  .navbar-profile {
-    display: flex;
-    align-items: center;
-  }
-  
-  .profile-img {
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    margin-right: 0.5rem;
-  }
-  
-  .profile-name {
-    font-size: 0.875rem;
-  }
+  padding: 0.5rem 1rem;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.user-icon {
+  font-size: 1.5rem;
+  color: white;
+}
+
+.profile-name {
+  font-size: 1rem;
+  color: white;
+}

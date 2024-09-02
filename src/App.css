@@ -65,26 +65,3 @@ html, body {
 }
 
 
-
-/* Footer styles */
-.footer {
-  color: #fff;
-  text-align: center;
-  padding: 1rem;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  left: 0; /* Ensure it starts from the left edge */
-  box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
-  box-sizing: border-box; /* Ensure padding does not affect width */
-  background-color: #007BFF;
-}
-
-.footer p {
-  margin: 0;
-}
-
-/* src/styles.css */
-
-/* Estilos específicos para la página de Settings */
-

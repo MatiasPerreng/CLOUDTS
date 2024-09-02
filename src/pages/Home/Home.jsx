@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Navbar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Footer from "../../components/Footer/Footer";
@@ -81,64 +81,66 @@ const Home = () => {
     });
 
     return (
-        <div className="home">
+        <div className="d-flex flex-column vh-100">
             <Navbar />
-            <div className="main-layout">
+            <div className="d-flex flex-grow-1">
                 <Sidebar />
-                <main className="main-content">
+                <main className="main-content flex-grow-1 p-3 bg-light overflow-auto">
                     <h1>Cloud de SOPORTE</h1>
-                    <div className="search-bar">
+                    <div className="mb-3">
                         <input
                             type="text"
                             placeholder="Buscar archivos o carpetas..."
+                            className="form-control"
                             value={searchQuery}
                             onChange={handleSearchChange}
                         />
                     </div>
 
-                    <div className="filters">
+                    <div className="mb-3 d-flex">
                         <button
-                            className={`filter-button ${filterType === 'all' ? 'active' : ''}`}
+                            className={`btn btn-outline-primary me-2 ${filterType === 'all' ? 'active' : ''}`}
                             onClick={() => handleFilterChange('all')}
                         >
                             Todos
                         </button>
                         <button
-                            className={`filter-button ${filterType === 'folder' ? 'active' : ''}`}
+                            className={`btn btn-outline-primary me-2 ${filterType === 'folder' ? 'active' : ''}`}
                             onClick={() => handleFilterChange('folder')}
                         >
                             Carpetas
                         </button>
                         <button
-                            className={`filter-button ${filterType === 'file' ? 'active' : ''}`}
+                            className={`btn btn-outline-primary ${filterType === 'file' ? 'active' : ''}`}
                             onClick={() => handleFilterChange('file')}
                         >
                             Archivos
                         </button>
                     </div>
 
-                    <div className="add-item">
+                    <div className="d-flex mb-3">
                         <input
                             type="text"
                             placeholder="Nombre del nuevo archivo o carpeta"
+                            className="form-control me-2"
                             value={newItemName}
                             onChange={(e) => setNewItemName(e.target.value)}
                         />
                         <button
-                            className="add-button"
+                            className="btn btn-primary me-2"
                             onClick={() => handleAddItem('folder')}
                         >
                             <FiPlus /> Carpeta
                         </button>
                         <button
-                            className="add-button"
+                            className="btn btn-primary"
                             onClick={() => handleAddItem('file')}
                         >
                             <FiPlus /> Archivo
                         </button>
                     </div>
 
-                    <div className="search-results">
+                    <div>
                         {filteredData.length > 0 ? (
                             renderTree(filteredData)
                         ) : (

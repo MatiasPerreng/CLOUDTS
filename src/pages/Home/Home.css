@@ -3,23 +3,22 @@
 .home {
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
 }
 
 .main-layout {
     display: flex;
     flex: 1;
     overflow: hidden;
-    margin-top: 60px; /* Ajusta este valor según la altura del Navbar */
 }
 
 .main-content {
     flex: 1;
-    padding: 20px;
+    padding: 2rem;
     background-color: #f4f4f4;
     overflow: auto;
     box-sizing: border-box;
+    margin-top: 60px; /* Espacio suficiente para el Navbar */
 }
 
 .search-bar {
@@ -150,3 +149,4 @@ p {
     font-size: 18px; /* Ajusta el tamaño del ícono */
     margin-right: 10px; /* Espacio entre ícono y texto */
 }
+
