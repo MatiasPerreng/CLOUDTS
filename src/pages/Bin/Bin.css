@@ -1,70 +1,102 @@
-/* Bin.css */
-
-.bin {
+/* src/pages/Bin/Bin.css */
+.bin-layout {
     display: flex;
     flex-direction: column;
     height: 100vh;
 }
 
-.bin-content {
+.main-content {
+    display: flex;
+    flex: 1;
+    margin-left: 250px; /* Ancho del Sidebar, ajusta según sea necesario */
+    flex-direction: column;
+    padding: 20px; /* Padding general para el contenido */
+}
+
+.sidebar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px; /* Ancho fijo para el Sidebar */
+    height: 100%;
+    background-color: #f8f9fa; /* Color de fondo del Sidebar */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra para el Sidebar */
+    overflow-y: auto;
+    z-index: 1000; /* Asegúrate de que el Sidebar esté por encima del contenido */
+}
+
+.bin-container {
     flex: 1;
     padding: 20px;
-    background-color: #f4f4f4;
-    margin-top: 60px; /* Ajusta este valor según la altura del Navbar */
-    box-sizing: border-box; /* Asegura que el padding esté incluido en el tamaño total */
+    overflow-y: auto;
 }
 
-h1 {
+.bin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.bin-title {
     font-size: 24px;
-    margin-bottom: 20px;
+    font-weight: bold;
 }
 
-p {
-    margin-bottom: 20px;
+.bin-description {
+    font-size: 16px;
+    color: #6c757d;
 }
 
 .bin-items {
     margin-top: 20px;
 }
 
-.bin-items ul {
-    list-style: none;
-    padding: 0;
-}
-
-.bin-items li {
+.bin-item {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 10px;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 20px; /* Aumentar padding para más espacio interno */
     border: 1px solid #ddd;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    background-color: #fff;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    min-height: 70px; /* Ajustar la altura mínima para hacer los artículos más largos */
 }
 
-.bin-items li .item-details {
-    flex: 1;
+.bin-item.folder {
+    background-color: #e9ecef;
+}
+
+.bin-item.file {
+    background-color: #f1f8ff;
+}
+
+.item-details {
     display: flex;
     align-items: center;
+    font-size: 16px;
 }
 
-.restore-button, .delete-button {
-    padding: 5px 10px;
+.item-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.action-button {
+    padding: 8px 12px;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
     font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .restore-button {
     background-color: #28a745;
     color: white;
-    margin-left: 10px;
-}
-
-.restore-button:hover {
-    background-color: #218838;
 }
 
 .delete-button {
@@ -72,29 +104,14 @@ p {
     color: white;
 }
 
+.restore-button:hover {
+    background-color: #218838;
+}
+
 .delete-button:hover {
     background-color: #c82333;
 }
 
-.bin-item.folder {
-    background-color: #eaf1f8;
-}
-
-.bin-item.file {
-    background-color: #f8f1e8;
-}
-
-.delete-button, .restore-button{
-    margin:0 10px 0 0;
-}
-
-.item-details {
-    display: flex;
-    align-items: center;
-}
-
-.item-details svg {
-    color: #007bff; /* Color azul para los íconos */
-    font-size: 20px; /* Tamaño del ícono */
-    margin-right: 10px; /* Espacio entre el ícono y el texto */
+.action-button svg {
+    margin-right: 5px;
 }
