@@ -1,7 +1,5 @@
+// src/pages/Home/HomeUnlogged.jsx
 import React, { useState } from 'react';
-import Navbar from "../../components/Navbar/Navbar";
-import Sidebar from "../../components/Sidebar/Sidebar";
-import Footer from "../../components/Footer/Footer";
 import './Home.css';
 import { FiFolder, FiFile, FiPlus } from 'react-icons/fi';
 
@@ -12,7 +10,7 @@ const initialData = [
     { id: 4, name: 'Foto.jpg', type: 'file', children: [] },
 ];
 
-const Home = () => {
+const HomeUnlogged = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [filterType, setFilterType] = useState('all');
     const [data, setData] = useState(initialData);
@@ -81,75 +79,70 @@ const Home = () => {
     });
 
     return (
-        <div className="home">
-            <Navbar />
-            <div className="main-layout">
-                <Sidebar />
-                <main className="main-content">
-                    <h1>Cloud de SOPORTE</h1>
-                    <div className="search-bar">
-                        <input
-                            type="text"
-                            placeholder="Buscar archivos o carpetas..."
-                            value={searchQuery}
-                            onChange={handleSearchChange}
-                        />
-                    </div>
+        <div className="home-unlogged">
+            <h1>Bienvenido a TodoSoft CLOUD</h1>
+            <p>Inicia sesión para acceder a tus archivos.</p>
 
-                    <div className="filters">
-                        <button
-                            className={`filter-button ${filterType === 'all' ? 'active' : ''}`}
-                            onClick={() => handleFilterChange('all')}
-                        >
-                            Todos
-                        </button>
-                        <button
-                            className={`filter-button ${filterType === 'folder' ? 'active' : ''}`}
-                            onClick={() => handleFilterChange('folder')}
-                        >
-                            Carpetas
-                        </button>
-                        <button
-                            className={`filter-button ${filterType === 'file' ? 'active' : ''}`}
-                            onClick={() => handleFilterChange('file')}
-                        >
-                            Archivos
-                        </button>
-                    </div>
-
-                    <div className="add-item">
-                        <input
-                            type="text"
-                            placeholder="Nombre del nuevo archivo o carpeta"
-                            value={newItemName}
-                            onChange={(e) => setNewItemName(e.target.value)}
-                        />
-                        <button
-                            className="add-folder-button"
-                            onClick={() => handleAddItem('folder')}
-                        >
-                            <FiPlus /> Carpeta
-                        </button>
-                        <button
-                            className="add-file-button"
-                            onClick={() => handleAddItem('file')}
-                        >
-                            <FiPlus /> Archivo
-                        </button>
-                    </div>
-
-                    <div className="search-results">
-                        {filteredData.length > 0 ? (
-                            renderTree(filteredData)
-                        ) : (
-                            <p>No se encontraron resultados.</p>
-                        )}
-                    </div>
-                </main>
+            <div className="search-bar">
+                <input
+                    type="text"
+                    placeholder="Buscar archivos o carpetas..."
+                    value={searchQuery}
+                    onChange={handleSearchChange}
+                />
             </div>
-            <Footer />
+
+            <div className="filters">
+                <button
+                    className={`filter-button ${filterType === 'all' ? 'active' : ''}`}
+                    onClick={() => handleFilterChange('all')}
+                >
+                    Todos
+                </button>
+                <button
+                    className={`filter-button ${filterType === 'folder' ? 'active' : ''}`}
+                    onClick={() => handleFilterChange('folder')}
+                >
+                    Carpetas
+                </button>
+                <button
+                    className={`filter-button ${filterType === 'file' ? 'active' : ''}`}
+                    onClick={() => handleFilterChange('file')}
+                >
+                    Archivos
+                </button>
+            </div>
+
+            <div className="add-item">
+                <input
+                    type="text"
+                    placeholder="Nombre del nuevo archivo o carpeta"
+                    value={newItemName}
+                    onChange={(e) => setNewItemName(e.target.value)}
+                />
+                <button
+                    className="add-folder-button"
+                    onClick={() => handleAddItem('folder')}
+                >
+                    <FiPlus /> Carpeta
+                </button>
+                <button
+                    className="add-file-button"
+                    onClick={() => handleAddItem('file')}
+                >
+                    <FiPlus /> Archivo
+                </button>
+            </div>
+
+            <div className="search-results">
+                {filteredData.length > 0 ? (
+                    renderTree(filteredData)
+                ) : (
+                    <p>No se encontraron resultados.</p>
+                )}
+            </div>
         </div>
     );
 };
 
-export default Home;
+export default HomeUnlogged;

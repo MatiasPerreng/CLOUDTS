@@ -1,20 +1,21 @@
-import React, { useState, useContext } from 'react';
+// src/pages/Login/Login.jsx
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../context/Auth/Auth';
+import { useAuth } from '../../context/Auth/Auth';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Login.css';
-
 
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const { login } = useContext(AuthContext); // Asegúrate de tener la función de login en tu contexto
+    const { login } = useAuth(); // Usa el hook useAuth para acceder a la función de login
     const navigate = useNavigate();
   
     const handleSubmit = async (e) => {
       e.preventDefault();
       try {
-        await login(username, password); // Llama a la función de login
+        const userData = { userName: username }; // Ajusta según cómo se maneje el usuario
+        await login(userData); // Llama a la función de login
         navigate('/'); // Redirige al usuario a la página principal después del login
       } catch (error) {
         console.error('Login failed:', error);
@@ -50,6 +51,6 @@ const Login = () => {
         </form>
       </div>
     );
-  };
-  
-  export default Login;
+};
+
+export default Login;

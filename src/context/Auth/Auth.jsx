@@ -1,32 +1,45 @@
-// AuthContext.js
-import React, { createContext, useState, useEffect } from 'react';
+// context/Auth/AuthContext.js
+import React, { createContext, useState, useEffect, useContext } from 'react';
 
-export const AuthContext = createContext();
+const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState(null);
+    const [authState, setAuthState] = useState({
+        isAuthenticated: false,
+        userName: null,
+    });
 
     useEffect(() => {
-        // Simulación: Obtener datos de usuario desde el localStorage o una API
         const loggedUser = JSON.parse(localStorage.getItem('user'));
         if (loggedUser) {
-            setUser(loggedUser);
+            setAuthState({
+                isAuthenticated: true,
+                userName: loggedUser.userName,
+            });
         }
     }, []);
 
     const login = (userData) => {
-        setUser(userData);
-        localStorage.setItem('user', JSON.stringify(userData)); // Guardar sesión en localStorage
+        setAuthState({
+            isAuthenticated: true,
+            userName: userData.userName,
+        });
+        localStorage.setItem('user', JSON.stringify(userData));
     };
 
     const logout = () => {
-        setUser(null);
+        setAuthState({
+            isAuthenticated: false,
+            userName: null,
+        });
         localStorage.removeItem('user');
     };
 
     return (
-        <AuthContext.Provider value={{ user, login, logout }}>
+        <AuthContext.Provider value={{ authState, login, logout }}>
             {children}
         </AuthContext.Provider>
     );
 };
+
+export const useAuth = () => useContext(AuthContext);
