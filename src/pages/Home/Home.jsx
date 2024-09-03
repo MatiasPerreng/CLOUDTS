@@ -81,66 +81,64 @@ const Home = () => {
     });
 
     return (
-        <div className="d-flex flex-column vh-100">
+        <div className="home">
             <Navbar />
-            <div className="d-flex flex-grow-1">
+            <div className="main-layout">
                 <Sidebar />
-                <main className="main-content flex-grow-1 p-3 bg-light overflow-auto">
+                <main className="main-content">
                     <h1>Cloud de SOPORTE</h1>
-                    <div className="mb-3">
+                    <div className="search-bar">
                         <input
                             type="text"
                             placeholder="Buscar archivos o carpetas..."
-                            className="form-control"
                             value={searchQuery}
                             onChange={handleSearchChange}
                         />
                     </div>
 
-                    <div className="mb-3 d-flex">
+                    <div className="filters">
                         <button
-                            className={`btn btn-outline-primary me-2 ${filterType === 'all' ? 'active' : ''}`}
+                            className={`filter-button ${filterType === 'all' ? 'active' : ''}`}
                             onClick={() => handleFilterChange('all')}
                         >
                             Todos
                         </button>
                         <button
-                            className={`btn btn-outline-primary me-2 ${filterType === 'folder' ? 'active' : ''}`}
+                            className={`filter-button ${filterType === 'folder' ? 'active' : ''}`}
                             onClick={() => handleFilterChange('folder')}
                         >
                             Carpetas
                         </button>
                         <button
-                            className={`btn btn-outline-primary ${filterType === 'file' ? 'active' : ''}`}
+                            className={`filter-button ${filterType === 'file' ? 'active' : ''}`}
                             onClick={() => handleFilterChange('file')}
                         >
                             Archivos
                         </button>
                     </div>
 
-                    <div className="d-flex mb-3">
+                    <div className="add-item">
                         <input
                             type="text"
                             placeholder="Nombre del nuevo archivo o carpeta"
-                            className="form-control me-2"
                             value={newItemName}
                             onChange={(e) => setNewItemName(e.target.value)}
                         />
                         <button
-                            className="btn btn-primary me-2"
+                            className="add-folder-button"
                             onClick={() => handleAddItem('folder')}
                         >
                             <FiPlus /> Carpeta
                         </button>
                         <button
-                            className="btn btn-primary"
+                            className="add-file-button"
                             onClick={() => handleAddItem('file')}
                         >
                             <FiPlus /> Archivo
                         </button>
                     </div>
 
-                    <div>
+                    <div className="search-results">
                         {filteredData.length > 0 ? (
                             renderTree(filteredData)
                         ) : (

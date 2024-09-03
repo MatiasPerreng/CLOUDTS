@@ -1,5 +1,4 @@
 /* Home.css */
-
 .home {
     display: flex;
     flex-direction: column;
@@ -63,6 +62,7 @@
     margin: 20px 0;
     display: flex;
     align-items: center;
+    gap: 10px;
 }
 
 .add-item input {
@@ -74,24 +74,32 @@
     box-sizing: border-box;
 }
 
-.add-button {
+.add-folder-button, .add-file-button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #007bff;
-    color: white;
     border: none;
     border-radius: 4px;
     display: flex;
     align-items: center;
-    margin-right: 10px;
+    gap: 5px;
 }
 
-.add-button svg {
-    margin-right: 5px; /* Espacio entre el ícono y el texto */
+.add-folder-button {
+    background-color: #28a745;
+    color: white;
 }
 
-.add-button:hover {
+.add-file-button {
+    background-color: #007bff;
+    color: white;
+}
+
+.add-folder-button:hover {
+    background-color: #218838;
+}
+
+.add-file-button:hover {
     background-color: #0056b3;
 }
 
@@ -116,6 +124,7 @@
     background-color: #fff;
     display: flex;
     align-items: center;
+    gap: 10px;
 }
 
 .search-item.folder {
@@ -139,14 +148,7 @@ p {
     margin: 0;
 }
 
-.add-button svg {
-    font-size: 18px; /* Ajusta el tamaño del ícono */
-    margin-right: 8px; /* Espacio entre ícono y texto */
-}
-
 .search-item svg {
     color: #007bff;
     font-size: 18px; /* Ajusta el tamaño del ícono */
-    margin-right: 10px; /* Espacio entre ícono y texto */
 }
-
