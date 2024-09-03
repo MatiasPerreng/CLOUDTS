@@ -15,6 +15,12 @@ const Sidebar = () => {
                 <li>
                     <Link to="/" className="sidebar-link">Página principal</Link>
                 </li>
+                {/* Mostrar la opción de Gestión de usuarios solo para administradores */}
+                {authState.userRole === 'admin' && (
+                    <li>
+                        <Link to="/user-management" className="sidebar-link">Gestión de usuarios</Link>
+                    </li>
+                )}
                 <li>
                     <Link to="/bin" className="sidebar-link">Papelera de reciclaje</Link>
                 </li>

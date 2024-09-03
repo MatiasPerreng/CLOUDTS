@@ -84,9 +84,8 @@ const Home = () => {
             <Navbar />
             <div className="main-content">
                 <Sidebar />
-                <main>
+                <main className='mb-5'>
                     <h1>Bienvenido a TodoSoft CLOUD</h1>
-
                     <div className="search-bar">
                         <input
                             type="text"

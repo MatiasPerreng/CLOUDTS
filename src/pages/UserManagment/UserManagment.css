@@ -1,0 +1,41 @@
+/* src/pages/UserManagement/UserManagement.css */
+.user-management-container {
+    padding: 20px;
+}
+
+.user-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.user-form input, .user-form select {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.user-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.user-list li {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-list button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.user-list button:hover {
+    background-color: #0056b3;
+}

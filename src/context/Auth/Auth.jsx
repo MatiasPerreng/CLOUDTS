@@ -1,5 +1,6 @@
-// context/Auth/AuthContext.js
+// src/context/AuthContext.js
 import React, { createContext, useState, useEffect, useContext } from 'react';
+
 
 const AuthContext = createContext();
 
@@ -7,6 +8,7 @@ export const AuthProvider = ({ children }) => {
     const [authState, setAuthState] = useState({
         isAuthenticated: false,
         userName: null,
+        userRole: null,
     });
 
     useEffect(() => {
@@ -15,6 +17,7 @@ export const AuthProvider = ({ children }) => {
             setAuthState({
                 isAuthenticated: true,
                 userName: loggedUser.userName,
+                userRole: loggedUser.role,
             });
         }
     }, []);
@@ -23,6 +26,7 @@ export const AuthProvider = ({ children }) => {
         setAuthState({
             isAuthenticated: true,
             userName: userData.userName,
+            userRole: userData.role,
         });
         localStorage.setItem('user', JSON.stringify(userData));
     };
@@ -31,6 +35,7 @@ export const AuthProvider = ({ children }) => {
         setAuthState({
             isAuthenticated: false,
             userName: null,
+            userRole: null,
         });
         localStorage.removeItem('user');
     };

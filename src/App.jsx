@@ -1,10 +1,12 @@
+// src/App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home/Home';
-import HomeLoggedOut from './pages/Home/HomeLoggedOut'; // Asegúrate de importar la página deslogueada
+import HomeLoggedOut from './pages/Home/HomeLoggedOut'; // Página deslogueada
 import Settings from './pages/Settings/Settings';
 import Bin from './pages/Bin/Bin';
 import Login from './pages/Login/Login';
+import UserManagement from './pages/UserManagment/UserManagment';
 import Footer from './components/Footer/Footer';
 import ProtectedRoute from './context/Auth/ProtectedRoute';
 import { AuthProvider, useAuth } from './context/Auth/Auth'; // Asegúrate de que la ruta sea correcta
@@ -16,6 +18,9 @@ const AppContent = () => {
     <Routes>
       <Route path="/" element={authState.isAuthenticated ? <Home /> : <HomeLoggedOut />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/user-management" element={
+        <ProtectedRoute roles={['admin']} element={<UserManagement />} />
+      } />
       <Route
         path="/settings"
         element={
@@ -45,7 +50,6 @@ const App = () => {
       <Router>
         <AppContent />
         <Footer />
-        
       </Router>
     </AuthProvider>
   );

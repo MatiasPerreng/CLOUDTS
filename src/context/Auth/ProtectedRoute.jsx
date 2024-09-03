@@ -10,7 +10,8 @@ const ProtectedRoute = ({ element, roles }) => {
         return <Navigate to="/login" />;
     }
 
-    if (roles && !roles.includes(authState.userName)) {
+    // Si se especifican roles y el rol del usuario no está en la lista, se redirige
+    if (roles && !roles.includes(authState.userRole)) {
         return <Navigate to="/unauthorized" />;
     }
 
