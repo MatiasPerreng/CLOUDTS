@@ -1,5 +1,13 @@
+
 .navbar {
   padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Asegura que el Navbar esté sobre otros elementos */
 }
 
 .navbar-brand {

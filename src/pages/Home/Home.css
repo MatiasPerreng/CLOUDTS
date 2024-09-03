@@ -17,7 +17,8 @@
     background-color: #f4f4f4;
     overflow: auto;
     box-sizing: border-box;
-    margin-top: 60px; /* Espacio suficiente para el Navbar */
+    margin-top: 60px;
+    /* Espacio suficiente para el Navbar */
 }
 
 .search-bar {
@@ -74,7 +75,8 @@
     box-sizing: border-box;
 }
 
-.add-folder-button, .add-file-button {
+.add-folder-button,
+.add-file-button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
@@ -113,7 +115,8 @@
 }
 
 .tree ul {
-    padding-left: 20px; /* Indentación para subelementos */
+    padding-left: 20px;
+    /* Indentación para subelementos */
 }
 
 .search-item {
@@ -150,5 +153,6 @@ p {
 
 .search-item svg {
     color: #007bff;
-    font-size: 18px; /* Ajusta el tamaño del ícono */
+    font-size: 18px;
+    /* Ajusta el tamaño del ícono */
 }

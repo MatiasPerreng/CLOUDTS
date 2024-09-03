@@ -10,7 +10,7 @@ const Sidebar = () => {
 
     return (
         <aside className="sidebar bg-light shadow-sm">
-            <div className="sidebar-brand">PABLO SE LA COME</div>
+            <div className="sidebar-brand">Menú de opciones</div>
             <ul className="list-unstyled sidebar-menu">
                 <li>
                     <Link to="/" className="sidebar-link">Página principal</Link>
