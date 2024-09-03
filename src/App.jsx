@@ -1,16 +1,18 @@
-// App.js
 import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home/Home';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Settings from './pages/Settings/Settings';
+import Bin from './pages/Bin/Bin';
 import Navbar from './components/Navbar/Navbar';
 import Sidebar from './components/Sidebar/Sidebar';
-import Bin from './pages/Bin/Bin';
 import Footer from './components/Footer/Footer';
+import ProtectedRoute from './context/Auth/ProtectedRoute';
+import { AuthProvider } from './context/Auth/Auth';
 import './App.css';
 
 const App = () => {
-    return (
+  return (
+    <AuthProvider>
       <Router>
         <Navbar />
         <div className="main-layout">
@@ -18,14 +20,32 @@ const App = () => {
           <main className="main-content">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/settings" element={<Settings />} />
-              <Route path="/bin" element={<Bin />} />
+              <Route
+                path="/settings"
+                element={
+                  <ProtectedRoute
+                    roles={['admin']}
+                    element={<Settings />}
+                  />
+                }
+              />
+              <Route
+                path="/bin"
+                element={
+                  <ProtectedRoute
+                    roles={['user', 'admin']}
+                    element={<Bin />}
+                  />
+                }
+              />
+              {/* Puedes agregar más rutas protegidas aquí */}
             </Routes>
           </main>
         </div>
         <Footer />
       </Router>
-    );
-  };
-  
-  export default App;
+    </AuthProvider>
+  );
+};
+
+export default App;

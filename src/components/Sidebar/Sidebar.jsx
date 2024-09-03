@@ -6,7 +6,7 @@ import './Sidebar.css';
 const Sidebar = () => {
     return (
         <aside className="sidebar bg-light shadow-sm">
-            <div className="sidebar-brand">CloudApp</div>
+            <div className="sidebar-brand">PABLO SE LA COME</div>
             <ul className="list-unstyled sidebar-menu">
                 <li>
                     <Link to="/" className="sidebar-link">Página principal</Link>
