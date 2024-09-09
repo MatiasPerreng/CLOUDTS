@@ -1,14 +1,17 @@
 .sidebar {
-    width: 250px; /* Ajusta el ancho según sea necesario */
-    background-color: #f8f9fa;
-    height: calc(100vh - 60px); /* Ajusta según la altura del navbar */
-    position: fixed;
-    top: 60px; /* Ajusta según la altura del navbar */
-    left: 0;
-    padding: 1rem;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-    overflow-y: auto;
-    box-sizing: border-box;
+  width: 250px;
+  /* Ajusta el ancho según sea necesario */
+  background-color: #f8f9fa;
+  height: calc(100vh - 60px);
+  /* Ajusta según la altura del navbar */
+  position: fixed;
+  top: 60px;
+  /* Ajusta según la altura del navbar */
+  left: 0;
+  padding: 1rem;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  box-sizing: border-box;
 }
 
 .sidebar-brand {
@@ -37,12 +40,53 @@
 .sidebar-menu a:hover {
   background-color: #e9ecef;
 }
+
 @media (max-width: 768px) {
   .sidebar {
-      width: 200px; /* Reduce el ancho del sidebar en pantallas más pequeñas */
+    width: 200px;
+    /* Reduce el ancho del sidebar en pantallas más pequeñas */
   }
 
   .main-content {
-      margin-left: 0; /* Elimina el margen cuando el sidebar es oculto o colapsado */
+    margin-left: 0;
+    /* Elimina el margen cuando el sidebar es oculto o colapsado */
+  }
+}
+
+/* Estilos para cuando el sidebar no está presente */
+.no-sidebar .main-content {
+  margin: 0;
+  /* Eliminar margen del sidebar */
+  padding-left: 0;
+  /* Quitar cualquier padding innecesario */
+  width: 100%;
+  /* Asegurar que el contenido principal ocupe todo el ancho */
+  background: none;
+  /* Asegurar que no haya fondo aplicado */
+
+}
+
+.no-sidebar .Sidebar {
+  display: none;
+  /* Asegurar que el sidebar no sea visible */
+}
+
+/* Estilos para cuando el sidebar está presente */
+.main-content.with-sidebar {
+  margin-left: 250px;
+  /* Espacio reservado para el sidebar */
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+  .main-content.with-sidebar {
+    margin-left: 200px;
+    /* Ajustar el margen para pantallas pequeñas */
+  }
+
+  .main-content.without-sidebar {
+    margin-left: 0;
+    /* Asegurar que no haya margen si el sidebar está oculto */
+
   }
 }

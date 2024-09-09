@@ -1,4 +1,3 @@
-// src/App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home/Home';
@@ -13,11 +12,11 @@ import Sidebar from './components/Sidebar/Sidebar';
 import ProtectedRoute from './context/Auth/ProtectedRoute';
 import { AuthProvider, useAuth } from './context/Auth/Auth'; // Asegúrate de que la ruta sea correcta
 
-const Layout = ({ children }) => (
-  <div className="app-layout">
+const Layout = ({ children, showSidebar = true }) => (
+  <div className={`app-layout ${!showSidebar ? 'no-sidebar' : ''}`}>
     <Navbar />
-    <div className="main-content">
-      <Sidebar />
+    <div className={`main-content ${showSidebar ? 'with-sidebar' : 'without-sidebar'}`}>
+      {showSidebar && <Sidebar />}
       <main>{children}</main>
     </div>
     <Footer />
@@ -29,7 +28,12 @@ const AppContent = () => {
 
   return (
     <Routes>
-      <Route path="/" element={authState.isAuthenticated ? <Layout><Home /></Layout> : <HomeLoggedOut />} />
+      <Route 
+        path="/" 
+        element={authState.isAuthenticated 
+          ? <Layout><Home /></Layout> 
+          : <Layout showSidebar={false}><HomeLoggedOut /></Layout>} 
+      />
       <Route path="/login" element={<Login />} />
       <Route path="/user-management" element={
         <ProtectedRoute roles={['admin']}>
